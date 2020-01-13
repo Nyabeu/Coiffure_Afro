@@ -61,6 +61,7 @@ class ModelHairstyleController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($modelHairstyle);
             $entityManager->flush();
+            $this->addFlash('success', 'Coiffure crée avec succès');
 
             return $this->redirectToRoute('category_hairstyle_index');
         }
@@ -100,6 +101,7 @@ class ModelHairstyleController extends AbstractController
                 $modelHairstyle->setPicture($newFilename);
             }
             $this->getDoctrine()->getManager()->flush();
+            $this->addFlash('success', 'Coiffure modifié avec succès');
 
             return $this->redirectToRoute('category_hairstyle_index');
         }
@@ -119,6 +121,7 @@ class ModelHairstyleController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($modelHairstyle);
             $entityManager->flush();
+            $this->addFlash('success', 'Cette coiffure a été supprimé avec succès');
         }
 
         return $this->redirectToRoute('category_hairstyle_index');

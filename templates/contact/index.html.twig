@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nous Contactez !!{% endblock %}
+
+{% block body %}
+  <div class="container" style="width: 60%;box-shadow: 5px 5px 5px tomato;background: rgb(234, 244, 226);">
+    <h2 class="text-center my-5" style="text-shadow: 5px 5px 5px pink;">Formulaire de contact</h2>
+
+    <div class="mt-3" style="">{{ include('contact/_form.html.twig') }}</div>
+
+  </div>
+{% endblock %}
