@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouvelle Coiffure{% endblock %}
+
+{% block body %}
+  <div class="container mt-4">
+    <h2 class="text-center mb-5" style="text-shadow: 5px 5px 5px tomato;">Créer une nouvelle Coiffure Afro</h2>
+
+    <div class="mt-3">{{ include('model_hairstyle/_form.html.twig') }}</div>
+
+    <a href="{{ path('category_hairstyle_index') }}" class="btn btn-info mb-5">Retour à la liste</a>
+  </div>
+{% endblock %}
+

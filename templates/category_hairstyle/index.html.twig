@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Type Coiffure Africaine{% endblock %}
+
+{% block body %}
+
+<div class="container mt-3">
+<h1 class="mb-5">Nos types de Coiffures Africaines</h1>
+  <div class="card-deck">
+    {% for category_hairstyle in category_hairstyles %}
+      <div class="card" style="width: 18rem;">
+        <a href="{{ path('model_hairstyle_index', {category_id : category_hairstyle.id}) }}" style="text-decoration:none;">
+            <img src="{{ asset('images/'~ category_hairstyle.picture)}}" class="card-img-top" alt="Photo des types de coiffure" style="height: 15rem;" >
+            <div class="card-body">
+              <h4 class="card-title text-center">
+                {{ category_hairstyle.name }}
+              </h4>
+            </div>
+          </a>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% endblock %}

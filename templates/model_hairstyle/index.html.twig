@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des Coiffures {% endblock %}
+
+{% block body %}
+
+    <div class="container mt-3">
+    <h1 class="mb-5"> Détail pour le type {{ category_coif.name }}</h1>
+      <div class="row flex">
+          {% for coiffure in coiffures %}
+        <div class="col-4">
+            <div class="card" style="width: 18rem;">
+              <img src="{{ asset('images/'~ coiffure.picture) }}" alt="image" style="height: 15rem;" class="card-img-top">
+              <div class="card-body">
+                <h5 class="card-title">{{ coiffure.name}}</h5>
+                <p class="card-text pt-2">{{ coiffure.price }} €</p>
+                <div class="row">
+                    <a href="{{ path('model_hairstyle_show', {'id': coiffure.id}) }}" class="col-4">Détail</a>
+                    <a href="{{ path('model_hairstyle_edit', {'id': coiffure.id}) }}" class="col-4">Editer</a>
+                    <a href="{{ path('model_hairstyle_delete', {'id': coiffure.id}) }}" class="col-4">{{ include('model_hairstyle/_delete_form.html.twig') }}</a>
+                </div>
+              </div>
+            </div>
+        </div>
+          {% endfor %}
+      </div>
+      <div class="row mt-3">
+        <p class="col-3">
+            <a href="{{ path('category_hairstyle_index') }}" class="btn btn-info">Retour à la liste</a>
+        </p>
+        <p class='col-3 offset-6'>
+        <a href="{{ path('model_hairstyle_new') }}" class="btn btn-primary">Créer une nouvelle coiffure</a>
+        </p>
+
+      </div>
+    </div>
+
+{% endblock %}
+
+
+
+
+
+

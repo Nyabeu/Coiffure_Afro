@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Coiffure Afro{% endblock %}
+
+{% block body %}
+
+<h1 class="text-center m-4 text-success" style="text-shadow: 5px 5px 5px orange">Voir les détails de cette coiffure: {{ coiffure.name }}</h1>
+<div class="container">
+  <div class="card">
+    <div class="row flex">
+      <div class="col-7">
+        <img src="{{ asset('images/'~ coiffure.picture)}}" class="card-img-top" style="height: 21rem" alt="Photo de coiffure">
+      </div>
+      <div class="col-5">
+        <div class="card-body">
+          <h1>{{ coiffure.name }}</h1><hr>
+          <p class="text-info">{{ coiffure.model }}</p>
+          <p class="text-primary" style="font-weight: bold; font-size: 2rem">{{ coiffure.price }} €</p><hr>
+          <p>{{ coiffure.description }}</p>
+          <p><a href="#" class="btn btn-danger my-2">Nous contactez</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <a href="{{ path('category_hairstyle_index') }}" class="btn btn-info mt-2">Retour à la liste</a>
+</div>
+{% endblock %}
+
+
+
+
+
